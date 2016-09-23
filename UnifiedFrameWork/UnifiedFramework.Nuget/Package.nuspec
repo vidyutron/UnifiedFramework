@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UnifiedFramework</id>
+    <version>1.6.6.7
+    </version>
+    <title>UnifiedFramework</title>
+    <authors>Dwivedi Vishal Sridhar Arya</authors>
+    <owners>Dwivedi Vishal Sridhar Arya</owners>
+    <description>
+      A long description of the package. This shows up in the right pane of the Add Package Dialog as well as in the Package Manager Console when listing packages using the Get-Package command.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+      Change Log--
+      1. Ability to Scrap ID, Class, Anchor, Xpath from given web page and creation of Json.
+      2. Code Refactoring.
+      3. Bug Fixes.
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://nuget.org/packages/UnifiedFramework.Nuget</projectUrl>
+    <iconUrl>http://s28.postimg.org/yq84hm5e5/UF_Logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <copyright>Copyright  2016</copyright>
+    <dependencies>
+      <dependency id="Microsoft.Office.Interop.Excel" version="15.0.4795.1000" />
+      <dependency id="Newtonsoft.Json" version="6.0.8" />
+      <dependency id="CommandLineParser" version="1.9.71" />
+      <dependency id="InputSimulator" version="1.0.4.0" />
+      <dependency id="NLog" version="3.1.0.0" />
+      <dependency id="HtmlAgilityPack" version="1.4.9.5" />
+    </dependencies>
+    <references></references>
+    <tags>Automation,Selenium,Selenium WebDriver,.Net</tags>
+  </metadata>
+  <files>
+    <file src="lib\" target="lib" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+  </files>
+</package>

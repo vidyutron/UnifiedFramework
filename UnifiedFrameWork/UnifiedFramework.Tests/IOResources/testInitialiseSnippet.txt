@@ -1,0 +1,9 @@
+﻿            ClearBrowser();
+            string ieServerFilePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName +
+                "\\IEWebDriver";
+            driver = WebControlConfiguration.IWebDriverConfig(ieServerFilePath);
+            driver.Manage().Window.Maximize();
+            driver.Manage().Cookies.DeleteAllCookies();
+            wait = WebControlConfiguration.ExplicitWaitConfig(driver, 60);
+            customReport = Instance;
+            customLogCollection = new List<ExtentTest>();

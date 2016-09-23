@@ -1,0 +1,303 @@
+﻿{
+  "Id": [
+    {
+      "Key": 0,
+      "value": "global_container"
+    },
+    {
+      "Key": 1,
+      "value": "global_content"
+    },
+    {
+      "Key": 2,
+      "value": "logo"
+    },
+    {
+      "Key": 3,
+      "value": "title"
+    },
+    {
+      "Key": 4,
+      "value": "tagline"
+    },
+    {
+      "Key": 5,
+      "value": "addthis_header"
+    },
+    {
+      "Key": 6,
+      "value": "main_container"
+    },
+    {
+      "Key": 7,
+      "value": "pdf_options"
+    },
+    {
+      "Key": 8,
+      "value": "margin_size"
+    },
+    {
+      "Key": 9,
+      "value": "page_size"
+    },
+    {
+      "Key": 10,
+      "value": "page_orientation"
+    },
+    {
+      "Key": 11,
+      "value": "image_size"
+    },
+    {
+      "Key": 12,
+      "value": "ad_right_side"
+    },
+    {
+      "Key": 13,
+      "value": "jpg_to_pdf_converter_form_container"
+    },
+    {
+      "Key": 14,
+      "value": "conversion_form"
+    },
+    {
+      "Key": 15,
+      "value": "jpg_to_pdf_conversion_buttons"
+    },
+    {
+      "Key": 16,
+      "value": "select_file_button"
+    },
+    {
+      "Key": 17,
+      "value": "cancel_upload_button"
+    },
+    {
+      "Key": 18,
+      "value": "convert_to_pdf_button"
+    },
+    {
+      "Key": 19,
+      "value": "file_queue"
+    },
+    {
+      "Key": 20,
+      "value": "jpg_to_pdf_converter_tutorial"
+    },
+    {
+      "Key": 21,
+      "value": "jpg_to_pdf_converter_tutorial_video"
+    },
+    {
+      "Key": 22,
+      "value": "jpg_to_pdf_appraisal"
+    },
+    {
+      "Key": 23,
+      "value": "footer"
+    }
+  ],
+  "Class": [
+    {
+      "Key": 0,
+      "value": "container"
+    },
+    {
+      "Key": 1,
+      "value": "row"
+    },
+    {
+      "Key": 2,
+      "value": "col-md-2"
+    },
+    {
+      "Key": 3,
+      "value": "neutral_link"
+    },
+    {
+      "Key": 4,
+      "value": "col-md-6"
+    },
+    {
+      "Key": 5,
+      "value": "col-md-4"
+    },
+    {
+      "Key": 6,
+      "value": "addthis_toolbox"
+    },
+    {
+      "Key": 7,
+      "value": "addthis_default_style"
+    },
+    {
+      "Key": 8,
+      "value": "addthis_button_facebook_like"
+    },
+    {
+      "Key": 9,
+      "value": "addthis_button_tweet"
+    },
+    {
+      "Key": 10,
+      "value": "addthis_button_google_plusone"
+    },
+    {
+      "Key": 11,
+      "value": "addthis_counter"
+    },
+    {
+      "Key": 12,
+      "value": "addthis_pill_style"
+    },
+    {
+      "Key": 13,
+      "value": "adsbygoogle"
+    },
+    {
+      "Key": 14,
+      "value": "wide_ad"
+    },
+    {
+      "Key": 15,
+      "value": "col-sm-6"
+    },
+    {
+      "Key": 16,
+      "value": "form-inline"
+    },
+    {
+      "Key": 17,
+      "value": "form-group"
+    },
+    {
+      "Key": 18,
+      "value": "form-control"
+    },
+    {
+      "Key": 19,
+      "value": "tall_ad"
+    },
+    {
+      "Key": 20,
+      "value": "btn"
+    },
+    {
+      "Key": 21,
+      "value": "btn-default"
+    },
+    {
+      "Key": 22,
+      "value": "disabled"
+    },
+    {
+      "Key": 23,
+      "value": "embed-container"
+    }
+  ],
+  "AnchorText": [
+    {
+      "Key": 0,
+      "value": "\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t"
+    },
+    {
+      "Key": 1,
+      "value": "\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tConvert-JPG-to-PDF.net\n\t\t\t\t\t\t\t\tConvert JPG to PDF the right way\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t"
+    },
+    {
+      "Key": 2,
+      "value": ""
+    },
+    {
+      "Key": 3,
+      "value": "JPG to PDF"
+    },
+    {
+      "Key": 4,
+      "value": "Contact"
+    },
+    {
+      "Key": 5,
+      "value": "Help Children Vaccination"
+    },
+    {
+      "Key": 6,
+      "value": "Link to us"
+    },
+    {
+      "Key": 7,
+      "value": "About"
+    },
+    {
+      "Key": 8,
+      "value": "Terms of Service and Privacy Policy"
+    },
+    {
+      "Key": 9,
+      "value": "Cookies"
+    },
+    {
+      "Key": 10,
+      "value": "Fran&ccedil;ais"
+    }
+  ],
+  "AnchorXpath": [
+    {
+      "Key": 0,
+      "value": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/a[1]"
+    },
+    {
+      "Key": 1,
+      "value": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/a[1]"
+    },
+    {
+      "Key": 2,
+      "value": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tr[1]/td[1]/a[1]"
+    },
+    {
+      "Key": 3,
+      "value": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tr[1]/td[2]/a[1]"
+    },
+    {
+      "Key": 4,
+      "value": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tr[2]/td[1]/a[1]"
+    },
+    {
+      "Key": 5,
+      "value": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tr[2]/td[2]/a[1]"
+    },
+    {
+      "Key": 6,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[1]"
+    },
+    {
+      "Key": 7,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[2]"
+    },
+    {
+      "Key": 8,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[3]"
+    },
+    {
+      "Key": 9,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[4]"
+    },
+    {
+      "Key": 10,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[5]"
+    },
+    {
+      "Key": 11,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[6]"
+    },
+    {
+      "Key": 12,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[7]"
+    },
+    {
+      "Key": 13,
+      "value": "/html[1]/body[1]/div[1]/div[2]/a[8]"
+    }
+  ],
+  "ButtonXpath": null
+}

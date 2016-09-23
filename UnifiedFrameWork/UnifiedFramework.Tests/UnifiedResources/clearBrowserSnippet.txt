@@ -1,0 +1,17 @@
+﻿            Console.Write("Parent Class");
+            Process p = new Process();
+            ProcessStartInfo ps = new ProcessStartInfo();
+            ps.FileName = "cmd.exe";
+            ps.Arguments = "/C RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 4351";
+            p.StartInfo = ps;
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.Start();
+            p.WaitForExit(30000);
+            Process[] processlist = Process.GetProcesses();
+            foreach (Process theprocess in Process.GetProcesses())
+            {
+                if (theprocess.ProcessName == "iexplore")
+                {
+                    theprocess.Kill();
+                }
+            }

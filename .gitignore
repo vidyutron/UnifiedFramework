@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/UnifiedFrameWork/packages
+/UnifiedFrameWork/UnifiedFrameWork/bin/Debug
+/UnifiedFrameWork/UnifiedFrameWork/obj/Debug
+/UnifiedFrameWork/UnifiedFrameWork/obj/Release
+/UnifiedFrameWork/UnifiedFramework.Tests/bin/Debug
+/UnifiedFrameWork/UnifiedFramework.Tests/obj/Debug
+/UnifiedFrameWork/UnifiedFramework.Nuget/bin/Debug
+/UnifiedFrameWork/UnifiedFramework.Nuget/obj/Debug
+/UnifiedFrameWork/UnifiedFramework.Prod/obj/Debug
+/UnifiedFrameWork/UnifiedFramework.Prod/bin/Debug
+/UnifiedFrameWork/UnifiedFramework.Implement/bin/Debug
+/UnifiedFrameWork/UnifiedFramework.Implement/obj/Debug
+/UnifiedFrameWork/UnifiedReport
+/UnifiedFrameWork/WiniumDriver

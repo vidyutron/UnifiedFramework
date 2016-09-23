@@ -1,0 +1,9 @@
+﻿            ClearBrowser();
+            string ieServerFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedTools", "IEWebDriver");
+            driver = UnifiedWebControlConfig.IWebDriverConfig(ieServerFilePath);
+            driver.Manage().Window.Maximize();
+            driver.Manage().Cookies.DeleteAllCookies();
+            wait = UnifiedWebControlConfig.ExplicitWaitConfig(driver, 60);
+            unifiedReport = Instance;
+            unifiedLogCollection = new List<UnifiedTest>();
+            WiniumDriver.WiniumInitiate();

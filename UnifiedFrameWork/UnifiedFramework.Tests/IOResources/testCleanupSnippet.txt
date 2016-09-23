@@ -1,0 +1,12 @@
+﻿	    for (int i = 0; i < customLogCollection.Count; i++)
+            {
+                if (customLogCollection[i] != null)
+                {
+                    customReport.EndTest(customLogCollection[i]);
+                    customReport.Flush();
+                    customLogCollection[i] = null;
+                }
+            }
+            customLogCollection.Clear();
+            driver.Dispose();
+            ClearBrowser();

@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{760CF72E-DA26-437E-80D5-A970BDF6DC9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnifiedFrameWork</RootNamespace>
+    <AssemblyName>UnifiedFrameWork</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>UnifiedWinComponent\Winium.Cruciatus\CruciatusRuleSet.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>UnifiedWinComponent\Winium.Cruciatus\CruciatusRuleSet.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>I:\VS-2015 Installed\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.TestTools.UITest.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>I:\VS-2015 Installed\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.TestTools.UITest.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.TestTools.UITesting.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UnifiedComponents\Model\HtmlDomObject.cs" />
+    <Compile Include="UnifiedComponents\Model\KeyValue.cs" />
+    <Compile Include="UnifiedComponents\Model\UExtractorUrl.cs" />
+    <Compile Include="UnifiedComponents\UnifiedCodeEngine\UCodeGen.cs" />
+    <Compile Include="UnifiedComponents\DirectoryHandler.cs" />
+    <Compile Include="UnifiedComponents\CSVReadWrite.cs" />
+    <Compile Include="UnifiedComponents\DBHandler.cs" />
+    <Compile Include="UnifiedComponents\ExcelReadWrite.cs" />
+    <Compile Include="UnifiedComponents\SendMail.cs" />
+    <Compile Include="UnifiedComponents\TextReadWrite.cs" />
+    <Compile Include="UnifiedComponents\UnifiedHtmlExtractor.cs" />
+    <Compile Include="UnifiedController\ComponentControl\UCodeGenController.cs" />
+    <Compile Include="UnifiedComponents\XmlReadWrite.cs" />
+    <Compile Include="UnifiedController\ComponentControl\UComponentContoller.cs" />
+    <Compile Include="UnifiedController\Resources\DBScripts.cs" />
+    <Compile Include="UnifiedController\UnifiedWebControl\UnifiedWebControl.cs" />
+    <Compile Include="UnifiedController\UnifiedWebControl\UnifiedWebControlConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnifiedComponents\UnifiedCodeEngine\UCodeEngine.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\AttributeList.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\Author.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\Category.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\Log.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\MediaList.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\RunInfo.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\ScreenCapture.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\Screencast.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\SystemProperties.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\Test.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Model\TestAttribute.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\CategoryFilterHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\CategoryHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\Icon.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\ImageHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\ObjectEmbedHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\ScreencastHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\StepHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\SystemInfoHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\TestHtml.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\UnifiedReportFlag.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports.Source\UnifiedReportHtmlTemplate.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\CategoryOptionBuilder.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\CategorySourceBuilder.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\DisplayOrder.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\LogCounts.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\LogSettings.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\LogStatus.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\MediaViewBuilder.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\Program.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\RegexMatcher.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\ReportConfig.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\ReportInstance.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\SourceBuilder.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\SystemInfo.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\TestBuilder.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\UnifiedReports.cs" />
+    <Compile Include="UnifiedReporting\UnifiedFramework.UnifiedReports\UnifiedTest.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\ClientSideScripts.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\JavaScriptBy.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgBy.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgByBinding.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgByModel.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgByRepeater.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgBySelectedOption.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgModule.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgNavigation.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgWebDriver.cs" />
+    <Compile Include="UnifiedWebComponent\AngularAutomation\NgWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonArray.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonBinary.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonBinaryType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonBinaryWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonObject.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonObjectId.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonProperty.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonRegex.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonString.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonToken.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonValue.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Bson\BsonWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\BinaryConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\BsonObjectIdConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\CustomCreationConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\DataSetConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\DataTableConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\DateTimeConverterBase.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\DiscriminatedUnionConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\EntityKeyMemberConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\ExpandoObjectConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IBinary.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IEntityKeyMember.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IsoDateTimeConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IXmlDeclaration.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IXmlDocument.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IXmlElement.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\IXmlNode.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\JavaScriptDateTimeConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\KeyValuePairConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\RegexConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\StringEnumConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\VersionConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XAttributeWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XCommentWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XContainerWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XDeclarationWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XDocumentWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XElementWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XmlDeclarationWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XmlDocumentWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XmlElementWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XmlNodeConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XmlNodeWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XObjectWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XProcessingInstructionWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Converters\XTextWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\ArrayIndexFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\ArrayMultipleIndexFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\ArraySliceFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\BooleanQueryExpression.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\CompositeExpression.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\FieldFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\FieldMultipleFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\JPath.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\PathFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\QueryExpression.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\QueryFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\QueryOperator.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq.JsonPath\ScanFilter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\Extensions.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\IJEnumerable.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JArray.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JConstructor.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JContainer.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JEnumerable.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JObject.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JProperty.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JPropertyDescriptor.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JPropertyKeyedCollection.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JRaw.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JToken.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JTokenEqualityComparer.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JTokenReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JTokenType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JTokenWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Linq\JValue.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\Extensions.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchema.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaBuilder.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaConstants.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaException.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaGenerator.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaModel.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaModelBuilder.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaNode.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaNodeCollection.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaResolver.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\JsonSchemaWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\UndefinedSchemaIdHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\ValidationEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Schema\ValidationEventHandler.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\CachedAttributeGetter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\CamelCasePropertyNamesContractResolver.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\DefaultContractResolver.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\DefaultReferenceResolver.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\DefaultSerializationBinder.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\DiagnosticsTraceWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\DynamicValueProvider.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ErrorContext.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ErrorEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ExpressionValueProvider.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ExtensionDataGetter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ExtensionDataSetter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\IContractResolver.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\IMetadataTypeAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\IReferenceResolver.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ITraceWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\IValueProvider.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonArrayContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonContainerContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonContractType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonDictionaryContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonDynamicContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonFormatterConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonISerializableContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonLinqContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonObjectContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonPrimitiveContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonProperty.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonPropertyCollection.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonSerializerInternalBase.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonSerializerInternalReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonSerializerInternalWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonSerializerProxy.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonStringContract.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\JsonTypeReflector.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\LateBoundMetadataTypeAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\MemoryTraceWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ObjectConstructor.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\OnErrorAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ReflectionValueProvider.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\ResolverContractKey.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\SerializationCallback.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\SerializationErrorCallback.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\TraceJsonReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Serialization\TraceJsonWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\Base64Encoder.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\BidirectionalDictionary.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\CollectionUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\CollectionWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ConvertUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\Creator.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DateTimeParser.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DateTimeUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DictionaryWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DynamicProxy.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DynamicProxyMetaObject.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DynamicReflectionDelegateFactory.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DynamicUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DynamicWrapper.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\DynamicWrapperBase.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\EnumUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\EnumValue.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\EnumValues.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ExpressionReflectionDelegateFactory.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ILGeneratorExtensions.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\IWrappedCollection.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\IWrappedDictionary.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\JavaScriptUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\LateBoundReflectionDelegateFactory.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\MathUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\MethodCall.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\MiscellaneousUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\NoThrowExpressionVisitor.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\NoThrowGetBinderMember.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\NoThrowSetBinderMember.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ParseResult.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ParserTimeZone.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\PrimitiveTypeCode.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ReflectionDelegateFactory.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ReflectionUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\StringBuffer.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\StringReference.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\StringUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ThreadSafeStore.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\TypeExtensions.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\TypeInformation.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\ValidationUtils.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\WrapperDictionary.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json.Utilities\WrapperMethodBuilder.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\ConstructorHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\DateFormatHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\DateParseHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\DateTimeZoneHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\DefaultValueHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\FloatFormatHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\FloatParseHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\Formatting.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\IJsonLineInfo.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonArrayAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonConstructorAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonContainerAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonContainerType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonConvert.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonConverter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonConverterAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonConverterCollection.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonDictionaryAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonException.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonExtensionDataAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonIgnoreAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonObjectAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonPosition.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonPropertyAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonReaderException.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonSerializationException.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonSerializer.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonSerializerSettings.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonTextReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonTextWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonToken.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonValidatingReader.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonWriter.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\JsonWriterException.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\MemberSerialization.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\MissingMemberHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\NullValueHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\ObjectCreationHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\PreserveReferencesHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\ReadType.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\ReferenceLoopHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\Required.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\StringEscapeHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\TypeNameHandling.cs" />
+    <Compile Include="UnifiedWebComponent\Newtonsoft.Json\WriteState.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Chrome\ChromeDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Chrome\ChromeDriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Chrome\ChromeMobileEmulationDeviceSettings.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Chrome\ChromeOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Chrome\ChromePerformanceLoggingPreferences.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Chrome\ChromeWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Edge\EdgeDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Edge\EdgeDriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Edge\EdgeOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Edge\EdgePageLoadStrategy.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Edge\EdgeWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox.Internal\Executable.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox.Internal\ILock.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox.Internal\IniFileReader.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox.Internal\SocketLock.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxBinary.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxDriverCommandExecutor.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxDriverServer.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxDriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxExtension.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxProfile.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxProfileManager.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\FirefoxWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Firefox\Preferences.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\AppCacheStatus.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\IApplicationCache.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\IHasApplicationCache.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\IHasLocationContext.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\IHasWebStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\ILocalStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\ILocationContext.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\ISessionStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\IWebStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Html5\Location.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerDriverEngine.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerDriverLogLevel.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerDriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerElementScrollBehavior.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerPageLoadStrategy.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerUnexpectedAlertBehavior.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.IE\InternetExplorerWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions.Internal\ICoordinates.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions.Internal\KeyboardAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions.Internal\MouseAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions.Internal\SingleKeyAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions.Internal\TouchAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions.Internal\WebDriverAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\Actions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ButtonReleaseAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ClickAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ClickAndHoldAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\CompositeAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ContextClickAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\DoubleClickAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\DoubleTapAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\FlickAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\IAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\KeyDownAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\KeyUpAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\LongPressAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\MoveMouseAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\MoveToOffsetAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ScreenMoveAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ScreenPressAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ScreenReleaseAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\ScrollAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\SendKeysAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\SingleTapAction.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Interactions\TouchActions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\AsyncJavaScriptExecutor.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\FileUtilities.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByClassName.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByCssSelector.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsById.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByLinkText.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByName.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByPartialLinkText.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByTagName.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IFindsByXPath.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IWrapsDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\IWrapsElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\PortUtilities.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\ResourceUtilities.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Internal\ReturnedCookie.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Opera\OperaDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Opera\OperaDriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Opera\OperaOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Opera\OperaWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.PhantomJS\CommandLineArgumentNameAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.PhantomJS\PhantomJSDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.PhantomJS\PhantomJSDriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.PhantomJS\PhantomJSOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.PhantomJS\PhantomJSWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\CapabilityType.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\CharArrayJsonConverter.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\Command.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\CommandInfo.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\CommandInfoRepository.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\DesiredCapabilities.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\DriverCommand.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\DriverServiceCommandExecutor.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\ErrorResponse.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\HttpCommandExecutor.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\ICommandExecutor.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\ICommandServer.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\IHasSessionId.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\LocalFileDetector.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteAlert.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteApplicationCache.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteCookieJar.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteCoordinates.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteKeyboard.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteLocalStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteLocationContext.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteMouse.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteNavigator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteSessionStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteTargetLocator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteTimeouts.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteTouchScreen.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteWebDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteWebStorage.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\RemoteWindow.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\Response.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\ResponseValueJsonConverter.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\SessionId.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\StackTraceElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\W3CWireProtocolCommandInfoRepository.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\WebDriverError.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Remote\WebDriverWireProtocolCommandInfoRepository.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Events\EventFiringWebDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Events\FindElementEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Events\WebDriverExceptionEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Events\WebDriverNavigationEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Events\WebDriverScriptEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Events\WebElementEventArgs.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.Extensions\WebDriverExtensions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\ByAll.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\ByChained.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\ByFactory.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\ByIdOrName.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\CacheLookupAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\DefaultElementLocator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\DefaultPageObjectMemberDecorator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\FindsByAllAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\FindsByAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\FindsBySequenceAttribute.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\How.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\IElementLocator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\IPageObjectMemberDecorator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\PageFactory.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\RetryingElementLocator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\WebDriverObjectProxy.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\WebElementListProxy.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.PageObjects\WebElementProxy.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\DefaultWait.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\ExpectedConditions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\IClock.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\ILoadableComponent.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\IWait.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\LoadableComponent.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\LoadableComponentException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\PopupWindowFinder.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\SelectElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\SlowLoadableComponent.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\SystemClock.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\UnexpectedTagNameException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium.Support.UI\WebDriverWait.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\By.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\Cookie.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\DefaultFileDetector.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\DriverOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\DriverService.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\DriverServiceNotFoundException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ElementNotVisibleException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IAlert.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IAllowsFileDetection.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ICapabilities.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ICookieJar.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IFileDetector.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IHasCapabilities.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IHasInputDevices.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IHasTouchScreen.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IJavaScriptExecutor.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IKeyboard.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ILocatable.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IMouse.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\INavigation.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\InvalidCookieDomainException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\InvalidElementStateException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\InvalidSelectorException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IOptions.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IRotatable.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ISearchContext.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ITakesScreenshot.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ITargetLocator.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ITimeouts.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ITouchScreen.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IWebDriver.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IWebElement.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\IWindow.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\Keys.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\NativeMethods.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\NoAlertPresentException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\NoSuchElementException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\NoSuchFrameException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\NoSuchWindowException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\NotFoundException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\Platform.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\PlatformType.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\Proxy.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ProxyKind.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\ScreenOrientation.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\Screenshot.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\StaleElementReferenceException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\UnableToSetCookieException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\UnhandledAlertException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\WebDriverException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\WebDriverResult.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\WebDriverTimeoutException.cs" />
+    <Compile Include="UnifiedWebComponent\OpenQA.Selenium\XPathLookupException.cs" />
+    <Compile Include="UnifiedWebComponent\System.IO.Compression\ZipStorer.cs" />
+    <Compile Include="UnifiedController\UnifiedWinControl\UIWinControl.cs" />
+    <Compile Include="UnifiedWinComponent\Automator\Automator.cs" />
+    <Compile Include="UnifiedWinComponent\Automator\Capabilities.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutorDispatchTable.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ClearElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ClickElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\CloseExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\CollapseComboBoxExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\CommandExecutorBase.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ElementEqualsExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ExecuteScriptExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ExpandComboBoxExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindChildElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindChildElementsExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindComboBoxSelectedItemExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindDataGridCellExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindElementsExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\FindMenuItemExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetActiveElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetCurrentWindowHandleExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetDataGridColumnCountExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetDataGridRowCountExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetElementAttributeExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetElementSizeExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetElementTextExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\GetWindowHandlesExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ImplicitlyWaitExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\IsComboBoxExpandedExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\IsElementDisplayedExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\IsElementEnabledExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\IsElementSelectedExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\MouseClickExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\MouseDoubleClickExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\MouseMoveToExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\NewSessionExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\NotImplementedExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\QuitExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ScreenshotExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ScrollToComboBoxItemExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ScrollToDataGridCellExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\ScrollToListBoxItemExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\SelectDataGridCellExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\SelectMenuItemExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\SendKeysToActiveElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\SendKeysToElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\StatusExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\SubmitElementExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandExecutors\SwitchToWindowExecutor.cs" />
+    <Compile Include="UnifiedWinComponent\CommandHelpers\BuildInfo.cs" />
+    <Compile Include="UnifiedWinComponent\CommandHelpers\OSInfo.cs" />
+    <Compile Include="UnifiedWinComponent\CommandLineOptions.cs" />
+    <Compile Include="UnifiedWinComponent\ElementsRegistry.cs" />
+    <Compile Include="UnifiedWinComponent\Extensions\AutomationPropertyHelper.cs" />
+    <Compile Include="UnifiedWinComponent\Extensions\ByHelper.cs" />
+    <Compile Include="UnifiedWinComponent\HttpRequest.cs" />
+    <Compile Include="UnifiedWinComponent\Input\KeyboardModifiers.cs" />
+    <Compile Include="UnifiedWinComponent\Input\KeyEvent.cs" />
+    <Compile Include="UnifiedWinComponent\Input\WiniumKeyboard.cs" />
+    <Compile Include="UnifiedWinComponent\Listener.cs" />
+    <Compile Include="UnifiedWinComponent\Logger.cs" />
+    <Compile Include="UnifiedWinComponent\Program.cs" />
+    <Compile Include="UnifiedWinComponent\Requester.cs" />
+    <Compile Include="UnifiedWinComponent\UriDispatchTables.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Application.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\By.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\ByProperty.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\ByXPath.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\ClickStrategies.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\CruciatusElementProperties.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\DisplayOrientation.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\ExpandStrategy.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\GetTextStrategy.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\IKeyboard.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\IScreenshoter.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\KeyboardSimulatorExt.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\MouseButtons.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\MouseSimulatorExt.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\RotationManager.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\Screenshot.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\Screenshoter.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Core\SendKeysExt.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\CruciatusCommand.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\CruciatusFactory.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\CheckBox.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\ComboBox.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\CruciatusElement.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\DataGrid.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\ListBox.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\Menu.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\OpenFileDialog.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\SaveFileDialog.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Elements\TabItem.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Exceptions\CruciatusException.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Exceptions\NoSuchElementException.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Extensions\AutomationElementExtension.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Extensions\CruciatusElementExtension.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Extensions\IScreenshoterExtension.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\AutomationElementHelper.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\AutomationPropertyHelper.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\ScreenCoordinatesHelper.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\XPath\DesktopTreeXPathNavigator.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\XPath\ElementItem.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\XPath\PropertyItem.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\XPath\RootItem.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Helpers\XPath\XPathItem.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\CruciatusSettings.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\KeyboardSimulatorType.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\MessageBoxSettings\MessageBoxButtonUid.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\MessageBoxSettings\OkCancelType.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\MessageBoxSettings\OkType.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\MessageBoxSettings\YesNoCancelType.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\MessageBoxSettings\YesNoType.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\OpenFileDialogUid.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.Cruciatus\Settings\SaveFileDialogUid.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\Command.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\CommandInfo.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\CommandResponse.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\DriverCommand.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\Exceptions\AutomationException.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\Exceptions\InnerDriverRequestException.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\HttpResponseHelper.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\JsonErrorCodes.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\JsonWireClasses.cs" />
+    <Compile Include="UnifiedWinComponent\Winium.StoreApps.Common\ResponseStatus.cs" />
+    <Compile Include="UnifiedWinComponent\WiniumDriver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdditionalResources\" />
+    <Folder Include="UnifiedWebComponent\obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="UnifiedWebComponent\Newtonsoft.Json\Dynamic.snk" />
+    <None Include="UnifiedWinComponent\Winium.Cruciatus\CruciatusRuleSet.ruleset" />
+    <None Include="UnifiedWinComponent\Winium.Cruciatus\packages.config" />
+    <None Include="UnifiedWinComponent\Winium.StoreApps.Common\packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Y /R "$(TargetPath)" "$(SolutionDir)UnifiedFramework.Nuget\lib\net45"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
