@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Unifiedframework by vidyutron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Unifiedframework</h1>
+      <h2 class="project-tagline">Standalone test automation framework, built on top of Selenium Web Driver Engine</h2>
+      <a href="https://github.com/vidyutron/UnifiedFramework" class="btn">View on GitHub</a>
+      <a href="https://github.com/vidyutron/UnifiedFramework/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/vidyutron/UnifiedFramework/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="unifiedframework" class="anchor" href="#unifiedframework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UnifiedFramework</h1>
+
+<p>Standalone test automation framework, built on top of Selenium Web Driver Engine</p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+
+<p>UnifiedFramework is standalone automation framework, Built on top of industry leading automation tool ©Selenium WebDriver, enhancing 
+features as well as stability.</p>
+
+<h2>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components:</h2>
+
+<h3>
+<a id="unified-code-engine-" class="anchor" href="#unified-code-engine-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unified Code Engine-</h3>
+
+<p>Taking into the consideration of how much time we invest in local automation framework Setup for each project, 
+with little deviation from the project structure, through UF we can automate the process of creation of setup files and structure in given language of your choice.</p>
+
+<p>**-Currently Unified Code Engine supports C#</p>
+
+<h3>
+<a id="unified-reporting-" class="anchor" href="#unified-reporting-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unified Reporting-</h3>
+
+<p>UnifiedFramework has inbuilt Reporting framework, which can be used to produce elegant yet intuitive reports, better if you are following 
+Unified Code Engine, reporting intialisation and setup shall be taken care automatically. Reporting and Logging is not just another good to have feature,
+its integral to the whole process and with Unified Reporting is glued together at code level.</p>
+
+<h3>
+<a id="unified-extractor-" class="anchor" href="#unified-extractor-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unified Extractor-</h3>
+
+<p>Unified Extractor, automates the process of scrapping HTML DOM elements into a lossely coupled JSON File, which then can be refered back to identify the 
+web page's controls. The JSON fiels hence generated are lite weight,CLR independent(Compile) and better adapted to external modifications.</p>
+
+<h3>
+<a id="unified-components" class="anchor" href="#unified-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unified Components</h3>
+
+<p>In real world automation suites, there’s hardly a scenario where automation framework alone can complete everything E2E. 
+Some requires Excel Read/Write functionality, Db connection mechanism, Sending email capability, Read/Write CSVs etc.In UF provides all these featues as pre baked APIs which will help you streamline these functionalities without breaking a sweat!.</p>
+
+<h2>
+<a id="getting-started-" class="anchor" href="#getting-started-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started-</h2>
+
+<p>To get started with UnifiedFramework, Add reference from Nuget Package Manager into you project.
+<a href="https://www.nuget.org/packages/UnifiedFramework/">UnifiedFramework-Nuget</a></p>
+
+<h4>
+<a id="code-snippet-with-explanation-to-assist-in-getting-started-with-unified-framework" class="anchor" href="#code-snippet-with-explanation-to-assist-in-getting-started-with-unified-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code snippet with explanation to assist in getting started with unified Framework.</h4>
+
+<h4>
+<a id="use-these-namespaces-in-your-intial-startup-unit-test-file-as-well" class="anchor" href="#use-these-namespaces-in-your-intial-startup-unit-test-file-as-well" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use these namespaces in your intial startup unit Test file as well</h4>
+
+<ul>
+<li>using System;</li>
+<li>using Microsoft.VisualStudio.TestTools.UnitTesting;</li>
+<li>using System.IO;</li>
+<li>using UnifiedFrameWork.Controller;</li>
+<li>using System.Collections.Generic;</li>
+<li>using UnifiedFrameWork.UCodeGenerator;</li>
+<li>using UnifiedFrameWork.UComponents;</li>
+<li>using System.Linq;</li>
+</ul>
+
+<h4>
+<a id="sample-test-method-construct" class="anchor" href="#sample-test-method-construct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample Test Method Construct</h4>
+
+<pre><code>namespace SampleUFProject
+{
+    [TestClass]
+    public class SampleUnifiedClass
+    {
+        [TestMethod]
+        public void SampleMethod()
+        {
+            //Initiates the Unified Code Engine, Should be first line.
+            UCodeGen.Initiate();
+
+        //Namespace under which c# files will be generated
+        string nameSpace = "MyProjectNamespace";
+
+        //Primary config file of the project( probably will be inherited by other implmentators, 
+        //hence is good candidate to act as base class) 
+        string baseType = "Config";
+
+        //Determine the current projects root file, dynamically. Can be replaced with absolute path but not recommended.
+        string filePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
+        //In this Section we will create Config File(which handles test intialisation, cleanup, assembly cleanups, Logging,
+        //report generation etc.)
+        //Invoke Unified Code Engine:Dynamic code creation fragment, using Namespace and Config file Name defined above.
+        UCodeGenController codeEngine = new UCodeGenController(nameSpace, baseType);
+        //Invoke Unified Code Config Generator:writing generated code to IOStream(here its c# file), using file path and classnme
+        //Eg. here we intend to create file named as Config, so baseType is passed as second parameter.
+        codeEngine.UCodeConfigGen(filePath, baseType);
+
+        //In this section we will create a single file inside a folder.
+        //Invoke Unified Code Engine, using Namespace, folder name, and baseclass 
+        codeEngine = new UCodeGenController(nameSpace, "SampleFileOne", baseType);
+        //Invoke Unified Code Generator, apart from creation of config file. this way should be followed to create c# files
+        //Here we need to passs file path, folder name, class name.
+        codeEngine.UCodeBuilder(filePath, "FolderOne", "SampleFileOne");
+
+
+        ////In this Section we will be creating two file under single folder
+        codeEngine = new UCodeGenController(nameSpace, "SampleFileTwo", baseType);
+        codeEngine.UCodeBuilder(filePath, "FolderTwo", "SampleFileTwo");
+        codeEngine = new UCodeGenController(nameSpace, "SampleFileThree", baseType);
+        codeEngine.UCodeBuilder(filePath, "FolderTwo", "SampleFileThree");
+
+
+        //In this section we will create Primary test method class with, by reading exisitng test case list(in excel format)
+        //You must supply either ur Actual/Dummy Test Case excel sheet, or may skip this section completely.
+        //To read from excel sheet, we will be using Unified's internal ExcelReading Component 
+        //To read excel sheet seamlessly it depends on user inputs so that it can adapt to the excel sheet and extract suitable informations.
+        //Input Required from user--
+        //1. filePath- Test case Excel sheet's file path
+        //2. TestCaseFileName- Excel Workbook's file name.
+        //3. SheetName- Excel Sheet's name.
+        //4. breakString[index], where index= (actual column number -1) - Supply index pointing to columns which has relaevant information matching to left side string
+        //eg. "TestCategory",breakString[3]- implies that 4th colum has information relevant to Test Category.
+
+        UComponentContoller component = new UComponentContoller();
+        List&lt;string&gt; uCodeExcelRead;
+        uCodeExcelRead = component.ExcelReader(filePath, "TestCaseFileName", "SheetName");
+        List&lt;Dictionary&lt;string, string&gt;&gt; uCodeMethodAttribute = new List&lt;Dictionary&lt;string, string&gt;&gt;();
+        codeEngine = new UCodeGenController(nameSpace, "BVT_TestMethod", baseType,"TestClass");
+        for (int i = 0; i &lt; uCodeExcelRead.Count; i++)
+        {
+            if (i != 0)
+            {
+                List&lt;string&gt; breakString = uCodeExcelRead[i].Split(new string[] { "-!-" }, StringSplitOptions.None).ToList();
+                Dictionary&lt;string, string&gt; uCodeTempDictionary = new Dictionary&lt;string, string&gt;() {
+                    { "TestMethod", "" }, { "TestCategory", breakString[3] }, { "Description", breakString[2] } };
+                codeEngine.UCodeAddTestMethod("Verify_Test_Case_" + breakString[0], uCodeTempDictionary);
+            }
+        }
+        codeEngine.UCodeBuilder(filePath, "TestMethod", "BVT_TestMethod");
+
+        //Finalises the Unified Code Generator, should be the last step.
+        UCodeGen.Finalise();
+
+        }
+        }
+}
+}
+</code></pre>
+
+<p>}</p>
+
+<h4>
+<a id="unified-html-dom-element-extractor" class="anchor" href="#unified-html-dom-element-extractor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unified HTML DOM Element Extractor</h4>
+
+<p> Currently Unified Extractor extracts: </p>
+
+<ul>
+<li> ID.</li>
+<li> Class.</li>
+<li> Anchor Text.</li>
+<li> Anchor Xpath.</li>
+<li>
+<p>Button Xpath.</p>
+
+<pre><code>    //Supply fully formed URL(Web Page address) from which scrapping of html elements are intended.
+    //example-http://www.vishalsridhar.com/unifiedframework instead of vishalsridhar.com/unifiedframework 
+    var url = "http://www.mikesdotnetting.com/article/273/using-the-htmlagilitypack-to-parse-html-in-asp-net";
+
+    //pass on the Url defined in previous step to Extract the elements.
+    //By default it will create UFHtmlExtractor Folder in the project file path and relevant json file inside that(based on the URL passed)
+    //** UnifiedFramework will automatically add the newly created file to the solution, so that you could refer within IDE itself.
+    UnifiedHtmlExtractor.ExtractElements(url);
+
+    //Pass full formed file path of the json file created as part of Extractor Method
+    //Make sure this file is called, only if Extractor method finished succesfully, and you can determine the file path and name
+    HtmlDomObject sampleElements=UnifiedHtmlExtractor.GetHtmlElements(@"C:\sampleProject\UFHtmlExtractor\mikesdotnetting_article_273_20160818173235.json");
+</code></pre>
+</li>
+</ul>
+
+<h4>
+<a id="access-dom-element-extracted-by-unified-html-extractor" class="anchor" href="#access-dom-element-extracted-by-unified-html-extractor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Access Dom Element extracted by Unified HTML Extractor</h4>
+
+<pre><code>public static HtmlDomObject SampleHTMLFileTORead
+        {
+            get
+            {
+    //Give Relative or Absolute File Path of the JSON file, created after extraction of the DOM Element.
+            HtmlDomObject sampleElements = UnifiedHtmlExtractor.GetHtmlElements(@"D:\SampleUnifiedDemonstration\UFHtmlExtractor\Sample-website-elements_20160826164644.json");
+            return sampleElements;
+            }
+        } 
+</code></pre>
+
+<h4>
+<a id="intialising-winium-driver" class="anchor" href="#intialising-winium-driver" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intialising Winium Driver</h4>
+
+<pre><code>public static RemoteWebDriver winiumDriver { 
+    get {
+            var dc = new DesiredCapabilities();
+            dc.SetCapability("app", Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedResources", "DoNothing.exe"));
+            var winiumDriver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+            return winiumDriver;
+            }
+        }
+</code></pre>
+
+<h3>
+<a id="have-a-question-want-to-contribute" class="anchor" href="#have-a-question-want-to-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Have a question?, want to contribute?.</h3>
+
+<h4>
+<a id="feel-free-to-fork-and-start-molding-the-clay-reach-out-to-me-at-interactvishalsridharcom" class="anchor" href="#feel-free-to-fork-and-start-molding-the-clay-reach-out-to-me-at-interactvishalsridharcom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feel free to fork and start molding the clay!. Reach out to me at <strong><a href="mailto:interact@vishalsridhar.com">interact@vishalsridhar.com</a></strong>
+</h4>
+
+<h2>
+<a id="licensed-under" class="anchor" href="#licensed-under" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licensed Under</h2>
+
+<h3>
+<a id="mit-license" class="anchor" href="#mit-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MIT License</h3>
+
+<h3>
+<a id="copyright-c-2016-dwivedi-vishal-sridhar-arya" class="anchor" href="#copyright-c-2016-dwivedi-vishal-sridhar-arya" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright (c) [2016] [Dwivedi Vishal Sridhar Arya].</h3>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/vidyutron/UnifiedFramework">Unifiedframework</a> is maintained by <a href="https://github.com/vidyutron">vidyutron</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
