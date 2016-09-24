@@ -40,7 +40,7 @@ To get started with UnifiedFramework, Add reference from Nuget Package Manager i
 * using UnifiedFrameWork.UComponents;
 * using System.Linq;
 
-####------------------------------------------------- Sample Test Method Construct  ------------------------------------------- 
+#### Sample Test Method Construct
 
 namespace SampleUFProject
 {
@@ -56,13 +56,15 @@ namespace SampleUFProject
             //Namespace under which c# files will be generated
             string nameSpace = "MyProjectNamespace";
 
-            //Primary config file of the project( probably will be inherited by other implmentators, hence is good candidate to act as base class) 
+            //Primary config file of the project( probably will be inherited by other implmentators, 
+            //hence is good candidate to act as base class) 
             string baseType = "Config";
 
             //Determine the current projects root file, dynamically. Can be replaced with absolute path but not recommended.
             string filePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
-            //In this Section we will create Config File(which handles test intialisation, cleanup, assembly cleanups, Logginh, report generation etc.)
+            //In this Section we will create Config File(which handles test intialisation, cleanup, assembly cleanups, Logging,
+            //report generation etc.)
             //Invoke Unified Code Engine:Dynamic code creation fragment, using Namespace and Config file Name defined above.
             UCodeGenController codeEngine = new UCodeGenController(nameSpace, baseType);
             //Invoke Unified Code Config Generator:writing generated code to IOStream(here its c# file), using file path and classnme
@@ -93,7 +95,7 @@ namespace SampleUFProject
             //2. TestCaseFileName- Excel Workbook's file name.
             //3. SheetName- Excel Sheet's name.
             //4. breakString[index], where index= (actual column number -1) - Supply index pointing to columns which has relaevant information matching to left side string
-            //eg. "TestCategory",breakString[3]- implies that 4th colum has Test Category or any other Relevant information.
+            //eg. "TestCategory",breakString[3]- implies that 4th colum has information relevant to Test Category.
             
             UComponentContoller component = new UComponentContoller();
             List<string> uCodeExcelRead;
@@ -114,21 +116,24 @@ namespace SampleUFProject
 
             //Finalises the Unified Code Generator, should be the last step.
             UCodeGen.Finalise();
-        }
+        	
+        	}
+    	    }
+	}
     }
 }
 
 
-####---------------------------------------------  Unified HTML DOM Element Extractor --------------------------------------------
+####Unified HTML DOM Element Extractor
 
-<p> Current Unified Extractor extracts</p>
-*  ID
-*  Class
-*  Anchor Text
-*  Anchor Xpath
-*  Button Xpath
+<p> Currently Unified Extractor extracts: </p>
+*  ID.
+*  Class.
+*  Anchor Text.
+*  Anchor Xpath.
+*  Button Xpath.
 
-            //Give fully formed URL(Web Page address) of which you intend to extract elements
+            //Supply fully formed URL(Web Page address) from which scrapping of html elements are intended.
             //example-http://www.vishalsridhar.com/unifiedframework instead of vishalsridhar.com/unifiedframework 
             var url = "http://www.mikesdotnetting.com/article/273/using-the-htmlagilitypack-to-parse-html-in-asp-net";
 
@@ -143,29 +148,30 @@ namespace SampleUFProject
 
 
 
-####-----------------------------------------------  Access Dom Element extracted by Unified HTML Extractor   ------------------------------
+#### Access Dom Element extracted by Unified HTML Extractor
 
-/* public static HtmlDomObject SampleHTMLFileTORead
+public static HtmlDomObject SampleHTMLFileTORead
         {
             get
             {
-				//Give Relative or Absolute File Path of the JSON file, created after extraction of the DOM Element.
-                HtmlDomObject sampleElements = UnifiedHtmlExtractor.GetHtmlElements(@"D:\UnifiedFramework\UnifiedFrameWork\UnifiedFramework.Implement\UFHtmlExtractor\convert-jpg-to-pdfnet_20160826164644.json");
+		//Give Relative or Absolute File Path of the JSON file, created after extraction of the DOM Element.
+                HtmlDomObject sampleElements = UnifiedHtmlExtractor.GetHtmlElements(@"D:\SampleUnifiedDemonstration\UFHtmlExtractor\Sample-website-elements_20160826164644.json");
                 return sampleElements;
             }
-        } */
+        } 
 
 
 
-####--------------------------------------------------  Intialising Winium Driver ---------------------------------------------------------
+#### Intialising Winium Driver
 
-/* public static RemoteWebDriver winiumDriver { get {
+public static RemoteWebDriver winiumDriver { 
+	get {
                 var dc = new DesiredCapabilities();
                 dc.SetCapability("app", Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedResources", "DoNothing.exe"));
                 var winiumDriver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
 
                 return winiumDriver;
             }
-        } */
+        }
 
 
