@@ -29,18 +29,9 @@ namespace ImplementUnifiedFramework
     using  Winium.Desktop.Driver;
     using  OpenQA.Selenium.Remote;
     using  UnifiedFrameWork.UnifiedComponents;
-
-
+    
+    
     public class SampleFileOne : Config
     {
-        internal static void ValidateScenarioOne()
-        {
-            driver.Navigate().GoToUrl("http://www.convert-jpg-to-pdf.net/");
-            UnifiedWebControl.ClickIdElement(ConvertToPdf.Id[16].value);
-
-            var fileToUpload = winiumDriver.FindElementByName("Choose File to Upload");
-            fileToUpload.FindElement(By.ClassName("Edit")).SendKeys(@"C:\Users\v-dwarya\Pictures\anniversary.jpg");
-            fileToUpload.FindElement(By.Name("Open")).Click();
-        }
     }
 }

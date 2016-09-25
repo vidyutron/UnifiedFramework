@@ -98,27 +98,7 @@ namespace ImplementUnifiedFramework
             ClearBrowser();
             #endregion
         }
-
-        public static HtmlDomObject ConvertToPdf
-        {
-            get
-            {
-                HtmlDomObject sampleElements = UnifiedHtmlExtractor.GetHtmlElements(@"D:\UnifiedFramework\UnifiedFrameWork\UnifiedFramework.Implement\UFHtmlExtractor\convert-jpg-to-pdfnet_20160906171648.json");
-                return sampleElements;
-            }
-        }
-        public static RemoteWebDriver winiumDriver
-        {
-            get
-            {
-                var dc = new DesiredCapabilities();
-                dc.SetCapability("app", Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedResources", "DoNothing.exe"));
-                var winiumDriver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-
-                return winiumDriver;
-            }
-        }
-
+        
         public void ClearBrowser()
         {
             #region Code Injection

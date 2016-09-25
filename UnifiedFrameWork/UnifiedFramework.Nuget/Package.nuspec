@@ -8,7 +8,8 @@
     <authors>Dwivedi Vishal Sridhar Arya</authors>
     <owners>Dwivedi Vishal Sridhar Arya</owners>
     <description>
-      A long description of the package. This shows up in the right pane of the Add Package Dialog as well as in the Package Manager Console when listing packages using the Get-Package command.
+     UnifiedFramework is standalone automation framework, Built on top of industry
+     leading automation tool ©Selenium WebDriver, enhancing features as well as stability.
     </description>
     <releaseNotes>
     </releaseNotes>
@@ -19,10 +20,10 @@
       3. Bug Fixes.
     </summary>
     <language>en-US</language>
-    <projectUrl>https://nuget.org/packages/UnifiedFramework.Nuget</projectUrl>
+    <projectUrl>http://www.vishalsridhar.com/UnifiedFramework/</projectUrl>
     <iconUrl>http://s28.postimg.org/yq84hm5e5/UF_Logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <copyright>Copyright  2016</copyright>
     <dependencies>
       <dependency id="Microsoft.Office.Interop.Excel" version="15.0.4795.1000" />

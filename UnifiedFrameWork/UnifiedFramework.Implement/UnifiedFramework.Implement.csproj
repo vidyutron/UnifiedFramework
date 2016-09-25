@@ -104,7 +104,8 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="UFHtmlExtractor\convert-jpg-to-pdfnet_20160906171648.json" />
+    <None Include="UFHtmlExtractor\convert-jpg-to-pdfnet_20160925203152.json" />
+    <None Include="UFHtmlExtractor\convert-jpg-to-pdfnet_20160925205438.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="UnifiedResources\clrBrowserSnipp.txt" />

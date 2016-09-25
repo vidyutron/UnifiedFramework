@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using HtmlAgilityPack;
 using System.Net;
-using System.Xml;
-using System.Web.Script.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.IO;
 using UnifiedFrameWork.Controller;
 
@@ -21,7 +17,6 @@ namespace UnifiedFrameWork.UnifiedComponents
             var url = ValidateUrl(urlToExract);
             if (string.IsNullOrWhiteSpace(urlToExract) && url != null)
             {
-
                 Console.WriteLine("Empty or Invalid Url has been supplied!");
             }
             else
@@ -79,7 +74,8 @@ namespace UnifiedFrameWork.UnifiedComponents
                        new KeyValue()
                        {
                            Key = i,
-                           value = listToObjectify.ElementAt(i)
+                           Value = listToObjectify.ElementAt(i),
+                           Description = ""
                        }
                       );
                 }

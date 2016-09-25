@@ -43,8 +43,7 @@ namespace ImplementUnifiedFramework
             unifiedLogCollection.Add(unifiedReport.StartTest("Test title to validate Scenario from BVT Test Suite:Scenario 1"));;
             try
             {
-                SampleFileOne.ValidateScenarioOne();
-                unifiedLogCollection[0].Log(LogStatus.Pass, "Successfully uploaded the Jpg to covert to Pdf");
+                // Please fill in you code here
             }
             catch (System.Exception ex)
             {
