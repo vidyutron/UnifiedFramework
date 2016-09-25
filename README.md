@@ -42,8 +42,8 @@ To get started with UnifiedFramework, Add reference from Nuget Package Manager i
 
 #### Sample Test Method Construct
 
-namespace SampleUFProject
-{
+	namespace SampleUFProject
+	{
     [TestClass]
     public class SampleUnifiedClass
     {
@@ -121,7 +121,7 @@ namespace SampleUFProject
     	    }
 	}
     }
-}
+
 
 
 ####Unified HTML DOM Element Extractor
@@ -150,7 +150,7 @@ namespace SampleUFProject
 
 #### Access Dom Element extracted by Unified HTML Extractor
 
-public static HtmlDomObject SampleHTMLFileTORead
+	public static HtmlDomObject SampleHTMLFileTORead
         {
             get
             {
@@ -164,7 +164,7 @@ public static HtmlDomObject SampleHTMLFileTORead
 
 #### Intialising Winium Driver
 
-public static RemoteWebDriver winiumDriver { 
+	public static RemoteWebDriver winiumDriver { 
 	get {
                 var dc = new DesiredCapabilities();
                 dc.SetCapability("app", Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedResources", "DoNothing.exe"));
