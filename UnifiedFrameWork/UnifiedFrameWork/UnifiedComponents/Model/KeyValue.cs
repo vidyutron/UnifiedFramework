@@ -9,6 +9,7 @@ namespace UnifiedFrameWork.UnifiedComponents
     public class KeyValue
     {
         public int Key { get; set; }
-        public string value { get; set; }
+        public string Value { get; set; }
+        public string Description { get; set; }
     }
 }

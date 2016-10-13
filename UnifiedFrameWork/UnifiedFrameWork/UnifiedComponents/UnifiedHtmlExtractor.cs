@@ -79,7 +79,9 @@ namespace UnifiedFrameWork.UnifiedComponents
                        new KeyValue()
                        {
                            Key = i,
-                           value = listToObjectify.ElementAt(i)
+                           Value = listToObjectify.ElementAt(i),
+                           Description=string.Empty
+
                        }
                       );
                 }
