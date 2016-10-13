@@ -99,7 +99,7 @@ To get started with UnifiedFramework, Add reference from Nuget Package Manager i
             
             UComponentContoller component = new UComponentContoller();
             List<string> uCodeExcelRead;
-            uCodeExcelRead = component.ExcelReader(filePath, "TestCaseFileName", "SheetName");
+            uCodeExcelRead = component.ExcelReader(filePath, "TestCaseFileName", "SheetName",UnifiedCleanser.QuotesCleanser);
             List<Dictionary<string, string>> uCodeMethodAttribute = new List<Dictionary<string, string>>();
             codeEngine = new UCodeGenController(nameSpace, "BVT_TestMethod", baseType,"TestClass");
             for (int i = 0; i < uCodeExcelRead.Count; i++)
