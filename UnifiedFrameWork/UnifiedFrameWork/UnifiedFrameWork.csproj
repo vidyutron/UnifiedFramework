@@ -92,9 +92,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnifiedComponents\Model\Cleanser.cs" />
     <Compile Include="UnifiedComponents\Model\HtmlDomObject.cs" />
     <Compile Include="UnifiedComponents\Model\KeyValue.cs" />
     <Compile Include="UnifiedComponents\Model\UExtractorUrl.cs" />
+    <Compile Include="UnifiedComponents\SpecialCharHandler.cs" />
     <Compile Include="UnifiedComponents\UnifiedCodeEngine\UCodeGen.cs" />
     <Compile Include="UnifiedComponents\DirectoryHandler.cs" />
     <Compile Include="UnifiedComponents\CSVReadWrite.cs" />

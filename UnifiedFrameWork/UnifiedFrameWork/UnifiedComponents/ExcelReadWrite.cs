@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using UnifiedFrameWork.UnifiedComponents;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace UnifiedFrameWork.Controller
@@ -19,9 +20,9 @@ namespace UnifiedFrameWork.Controller
         static object misValue = System.Reflection.Missing.Value;
 
         internal void ExcelWriter(string filepath, string filename, List<string> values
-            , string delimiter="-!-")
+            , string delimiter = "-!-")
         {
-            string completeFilePath = Path.Combine(filepath,filename);
+            var completeFilePath = Path.Combine(filepath, filename);
             for (int localRCount = 1; localRCount <= values.Count; localRCount++)
             {
                 int delimterCount = Regex.Matches(values[localRCount - 1], delimiter).Count;
@@ -41,9 +42,10 @@ namespace UnifiedFrameWork.Controller
             ReleaseObject(xlApp);
         }
 
-        internal List<string> ExcelReader(string filepath, string filename,string sheetName,string delimitor="-!-")
+        internal List<string> ExcelReader(string filepath, string filename,
+            string sheetName, UnifiedCleanser cleanser = UnifiedCleanser.Default, string delimitor = "-!-")
         {
-            string completeFilePath = Path.Combine(filepath, filename);
+            var completeFilePath = Path.Combine(filepath, filename);
             List<string> readList = new List<string>();
             try
             {
@@ -57,12 +59,23 @@ namespace UnifiedFrameWork.Controller
                 // it can be either [iRowCount]-Row dependent, or [iColCount]-Column Dependednt
                 for (int i = 1; i <= iRowCount; i++)
                 {
-                    string tempString = string.Empty;
+                    var tempString = string.Empty;
                     for (int k = 1; k <= iColCount; k++)
                     {
-                        tempString = tempString + Convert.ToString(xlWorkSheet.Cells[i, k].Value2)+ delimitor;
+                        tempString = tempString + Convert.ToString(xlWorkSheet.Cells[i, k].Value2) + delimitor;
                     }
-                    readList.Add(tempString);
+                    switch (cleanser)
+                    {
+                        case UnifiedCleanser.QuotesCleanser:
+                            readList.Add(SpecialCharHandler.QuotesCleanser(tempString));
+                            break;
+                        case UnifiedCleanser.EscapeCharCleanser:
+                            readList.Add(SpecialCharHandler.QuotesCleanser(tempString));
+                            break;
+                        default:
+                            readList.Add(tempString);
+                            break;
+                    }
                 }
                 ExcelCleanUp();
                 return readList;

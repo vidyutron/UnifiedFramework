@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnifiedFrameWork.UnifiedComponents;
 
 namespace UnifiedFrameWork.Controller
 {
@@ -49,10 +50,11 @@ namespace UnifiedFrameWork.Controller
             excelReadWrite = new ExcelReadWrite();
             excelReadWrite.ExcelWriter(filepath, filename, values, delimiter);
         }
-        public List<string>ExcelReader(string filepath, string filename, string sheetName, string delimitor = "-!-")
+        public List<string> ExcelReader(string filepath, string filename,
+            string sheetName, UnifiedCleanser cleanser = UnifiedCleanser.Default, string delimitor = "-!-")
         {
             excelReadWrite = new ExcelReadWrite();
-           return excelReadWrite.ExcelReader(filepath, filename, sheetName, delimitor);
+            return excelReadWrite.ExcelReader(filepath, filename, sheetName, cleanser, delimitor);
         }
 
         public void SendMail(string mailFrom, List<string> mailToList,
