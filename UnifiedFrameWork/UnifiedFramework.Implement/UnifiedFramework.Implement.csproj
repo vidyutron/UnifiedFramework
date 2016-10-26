@@ -46,7 +46,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build">
-      <HintPath>..\packages\UnifiedFramework.1.6.6.7\lib\net45\Microsoft.Build.dll</HintPath>
+      <HintPath>..\packages\UnifiedFramework.1.6.7.1\lib\net45\Microsoft.Build.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -64,15 +64,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration">
-      <HintPath>..\packages\UnifiedFramework.1.6.6.7\lib\net45\System.Configuration.dll</HintPath>
+      <HintPath>..\packages\UnifiedFramework.1.6.7.1\lib\net45\System.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <HintPath>..\packages\UnifiedFramework.1.6.6.7\lib\net45\System.Xml.Linq.dll</HintPath>
+      <HintPath>..\packages\UnifiedFramework.1.6.7.1\lib\net45\System.Xml.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="UnifiedFrameWork, Version=1.4.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnifiedFramework.1.6.6.7\lib\net45\UnifiedFrameWork.dll</HintPath>
+      <HintPath>..\packages\UnifiedFramework.1.6.7.1\lib\net45\UnifiedFrameWork.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
@@ -93,6 +93,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Config\AppConfig.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="FolderOne\SampleFileOne.cs" />
     <Compile Include="FolderTwo\SampleFileThree.cs" />
@@ -103,19 +104,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="app.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
-    <None Include="UFHtmlExtractor\convert-jpg-to-pdfnet_20160906171648.json" />
+    <None Include="UnifiedDownloads.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="UnifiedResources\clrBrowserSnipp.txt" />
     <Content Include="UnifiedResources\DoNothing.exe" />
     <Content Include="UnifiedResources\Getting Started Guide.txt" />
     <Content Include="UnifiedResources\mailBody.html" />
-    <Content Include="UnifiedResources\ReadMe.txt" />
     <Content Include="UnifiedResources\testCleanUpSnipp.txt" />
     <Content Include="UnifiedResources\testIntializeSnipp.txt" />
-    <Content Include="UnifiedTools\IEWebDriver\IEDriverServer.exe" />
-    <Content Include="UnifiedTools\WinInspect\Inspect.exe" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

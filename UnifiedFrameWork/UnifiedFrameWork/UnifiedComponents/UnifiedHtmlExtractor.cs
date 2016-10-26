@@ -119,7 +119,7 @@ namespace UnifiedFrameWork.UnifiedComponents
                 var projFilePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                 var p1 = new Microsoft.Build.Evaluation.Project(Path.Combine(projFilePath,
                     Path.GetFileName(projFilePath.TrimEnd(Path.DirectorySeparatorChar)) + ".csproj"));
-                    p1.AddItem("None", Path.Combine("UFHtmlExtractor",jsonFileName+".json"));
+                    p1.AddItem("None", Path.Combine("UFHtmlExtractor", jsonFileName + ".json"), new Dictionary<string, string> { { "CopyToOutputDirectory", "PreserveNewest" } });
                     p1.Save();
             }
             catch (Exception ex)

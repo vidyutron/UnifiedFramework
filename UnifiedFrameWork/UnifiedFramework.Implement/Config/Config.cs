@@ -10,34 +10,49 @@
 
 namespace ImplementUnifiedFramework
 {
-    using  System;
-    using  System.Collections.Generic;
-    using  System.Linq;
-    using  System.Text;
-    using  System.Threading.Tasks;
-    using  OpenQA.Selenium;
-    using  OpenQA.Selenium.IE;
-    using  OpenQA.Selenium.Support.UI;
-    using  Microsoft.VisualStudio.TestTools.UnitTesting;
-    using  System.Diagnostics;
-    using  System.IO;
-    using  System.Configuration;
-    using  System.Threading;
-    using  UnifiedFramework.UnifiedReports;
-    using  UnifiedFrameWork.Controller;
-    using  System.Text.RegularExpressions;
-    using  Winium.Desktop.Driver;
-    using  OpenQA.Selenium.Remote;
-    using  UnifiedFrameWork.UnifiedComponents;
-    
-    
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.IE;
+    using OpenQA.Selenium.Support.UI;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Configuration;
+    using System.Threading;
+    using UnifiedFramework.UnifiedReports;
+    using UnifiedFrameWork.Controller;
+    using System.Text.RegularExpressions;
+    using Winium.Desktop.Driver;
+    using OpenQA.Selenium.Remote;
+    using UnifiedFrameWork.UnifiedComponents;
+    using UnifiedFramework.Implement.Config;
+    using Newtonsoft.Json;
+
     [TestClass()]
     public class Config
     {
-        
+        private static AppConfig _appJson;
+        public static AppConfig AppJson {
+            get {
+                if (_appJson == null)
+                {
+                    using (StreamReader file = File.OpenText("appconfig.json"))
+                    {
+                        _appJson = JsonConvert.DeserializeObject<AppConfig>(file.ReadToEnd());
+                        return _appJson;
+                    }
+                }
+                else { return _appJson; }            
+            }
+        }
+
+        public IWebDriver Driver { get; set; }
+
         public static OpenQA.Selenium.IWebDriver driver;
-        
-        public static string textFile;
         
         public static UnifiedFramework.UnifiedReports.UnifiedReports unifiedReport;
         
@@ -66,6 +81,7 @@ namespace ImplementUnifiedFramework
         [TestInitialize()]
         public void TestIntialise()
         {
+           var some= AppJson.FilePaths["seleniumdriverpath"];
             #region Code Injection
             ClearBrowser();
             string ieServerFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedTools", "IEWebDriver");
@@ -98,27 +114,7 @@ namespace ImplementUnifiedFramework
             ClearBrowser();
             #endregion
         }
-
-        public static HtmlDomObject ConvertToPdf
-        {
-            get
-            {
-                HtmlDomObject sampleElements = UnifiedHtmlExtractor.GetHtmlElements(@"D:\UnifiedFramework\UnifiedFrameWork\UnifiedFramework.Implement\UFHtmlExtractor\convert-jpg-to-pdfnet_20160906171648.json");
-                return sampleElements;
-            }
-        }
-        public static RemoteWebDriver winiumDriver
-        {
-            get
-            {
-                var dc = new DesiredCapabilities();
-                dc.SetCapability("app", Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedResources", "DoNothing.exe"));
-                var winiumDriver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
-
-                return winiumDriver;
-            }
-        }
-
+        
         public void ClearBrowser()
         {
             #region Code Injection

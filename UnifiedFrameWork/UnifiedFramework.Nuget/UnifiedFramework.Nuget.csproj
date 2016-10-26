@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="content\ServerDownload.ps1" />
+    <None Include="content\UnifiedDownloads.ps1" />
     <None Include="NuGetPackage.ps1" />
     <None Include="NuGetSetup.ps1" />
     <None Include="NuGet.exe" />
@@ -73,8 +73,6 @@
     <Content Include="content\UnifiedResources\Getting Started Guide.txt" />
     <Content Include="content\UnifiedResources\testCleanUpSnipp.txt" />
     <Content Include="content\UnifiedResources\testIntializeSnipp.txt" />
-    <Content Include="content\UnifiedTools\IEWebDriver\IEDriverServer.exe" />
-    <Content Include="content\UnifiedTools\WinInspect\Inspect.exe" />
     <Content Include="lib\net45\Microsoft.Build.dll" />
     <Content Include="lib\net45\System.Configuration.dll" />
     <Content Include="lib\net45\System.Xml.Linq.dll" />

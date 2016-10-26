@@ -139,10 +139,10 @@ namespace UnifiedFrameWork.Controller
             sampleMethod.Statements.Add(testMethodTry);
 
             CodeCatchClause testMethodCatch = new CodeCatchClause("ex");
-            testMethodCatch.Statements.Add(new CodeCommentStatement("Code to handle the Exception"));
+            testMethodCatch.Statements.Add(new CodeCommentStatement("Code to handle the Exception(s)"));
             testMethodTry.CatchClauses.Add(testMethodCatch);
 
-            testMethodTry.FinallyStatements.Add(new CodeCommentStatement("Handle any finally block"));
+            testMethodTry.FinallyStatements.Add(new CodeCommentStatement("Handle finally block"));
 
             targetClass.Members.Add(sampleMethod);
         }

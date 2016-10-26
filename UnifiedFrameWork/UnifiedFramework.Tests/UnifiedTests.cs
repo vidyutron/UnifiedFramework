@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnifiedFrameWork.UnifiedComponents;
+using UnifiedFrameWork.Controller;
+using System.IO;
+using UnifiedFrameWork.UCodeGenerator;
 
 namespace UnifiedFramework.Tests
 {
@@ -20,5 +23,28 @@ namespace UnifiedFramework.Tests
             //** UnifiedFramework will automatically add the newly created file to the solution, so that you could refer within IDE itself.
             UnifiedHtmlExtractor.ExtractElements(url);
         }
-    }
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            //Initiates the Unified Code Engine, Should be first line.
+            UCodeGen.Initiate();
+
+            //Namespace under which c# files will be generated
+            string nameSpace = "UnifiedFramework.Tests";
+
+            //Primary config file of the project( probably will be inherited by other implmentators, 
+            //hence is good candidate to act as base class) 
+            string baseType = "Config";
+
+            //Determine the current projects root file, dynamically. Can be replaced with absolute path but not recommended.
+            string filePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            UCodeGenController codeEngine = new UCodeGenController(nameSpace, baseType);
+            codeEngine.UCodeConfigGen(filePath, baseType,"ChromeDriver");
+
+            //Finalises the Unified Code Generator, should be the last step.
+            UCodeGen.Finalise();
+
+        }
+        }
 }

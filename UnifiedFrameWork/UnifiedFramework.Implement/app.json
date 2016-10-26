@@ -1,0 +1,14 @@
+﻿{
+  "FilePaths": {
+    "seleniumdriverpath": "ChromeDriver",
+    "wininspectpath": "WinInspect",
+    "unifiedreportpath": "UnifiedReports",
+    "donothingpath": "UnifiedResources"
+  },
+  "UnifiedReports": {
+    "filename": "UnifiedFramework_Report",
+    "name": "UnifiedImplemenation",
+    "title": "UnifiedTitle",
+    "reportheadline": "UnifiedheadLine"
+  }
+}

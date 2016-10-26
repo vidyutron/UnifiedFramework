@@ -93,5 +93,11 @@ namespace UnifiedFramework.Implement
             //** UnifiedFramework will automatically add the newly created file to the solution, so that you could refer within IDE itself.
             UnifiedHtmlExtractor.ExtractElements(url);
         }
-    }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+
+        }
+      }
 }

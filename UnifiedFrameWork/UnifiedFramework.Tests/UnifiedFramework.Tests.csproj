@@ -68,7 +68,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="UFHtmlExtractor\mikesdotnetting_article_273_20161013191433.json" />
+    <None Include="app.json" />
+    <None Include="D:\GitHub_Repos\UnifiedFramework\UnifiedFrameWork\UnifiedFramework.Tests\Model\appconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="UFHtmlExtractor\mikesdotnetting_article_273_20161026143145.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="UnifiedDownloads.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
 using System.Text;
 using System.Threading.Tasks;
 using UnifiedFrameWork.UCodeGenerator;
@@ -113,8 +116,17 @@ namespace UnifiedFrameWork.Controller
             //AutomateAddFile.IncludeInProject(projectName, Path.Combine(filePath,Directory, className + ".cs"));
         }
 
-        public void UCodeConfigGen(string filePath,string directory)
+        public void UCodeConfigGen(string filePath,string directory,string driverType)
         {
+            UnifiedFilesDownload(".\\UnifiedDownloads.ps1", driverType);
+            var codeEngine1 = new UCodeEngine(nameSpace, localUsingCollection, "AppConfig");
+            codeEngine1.UCodeAddProperties("FilePaths", "Dictionary<Dictionary<string,string>");
+            codeEngine1.UCodeAddProperties("UnifiedReports", "Dictionary<Dictionary<string,string>");
+            codeEngine1.UCodeGenerator(filePath, "Model", className);
+            UCodeGen.FilesToInclude.Add(Path.Combine("Model", className));
+
+            UnifiedAppConfigGenerator(driverType);
+
             string testIntialiseCodeSnippet = File.ReadAllText("..//..//"+ snippetParentFolder + "//testIntializeSnipp.txt");
             string testCleanupCodeSnippet = File.ReadAllText("..//..//" + snippetParentFolder + "//testCleanUpSnipp.txt");
             string testClearBrowserCodeSnippet = File.ReadAllText("..//..//" + snippetParentFolder + "//clrBrowserSnipp.txt");
@@ -140,6 +152,60 @@ namespace UnifiedFrameWork.Controller
 
             //Include file in project
             UCodeGen.FilesToInclude.Add(Path.Combine(directory, className));
+        }
+
+        internal static void UnifiedFilesDownload(string scriptFile,string driverType)
+        {
+            Runspace runspace = RunspaceFactory.CreateRunspace();
+            runspace.Open();
+
+            RunspaceInvoke runSpaceInvoker = new RunspaceInvoke(runspace);
+            runSpaceInvoker.Invoke("Set-ExecutionPolicy Unrestricted");
+
+            // create a pipeline and feed it the script text
+            Pipeline pipeline = runspace.CreatePipeline();
+            Command command = new Command(scriptFile);
+            command.Parameters.Add("drivername",driverType);
+            pipeline.Commands.Add(command);
+
+            pipeline.Invoke();
+            runspace.Close();
+        }
+
+        internal static void UnifiedAppConfigGenerator(string driverType)
+        {
+            var tempdicFilepaths = new Dictionary<string, string>();
+            tempdicFilepaths.Add("seleniumdriverpath", driverType);
+            tempdicFilepaths.Add("wininspectpath", "WinInspect");
+            tempdicFilepaths.Add("unifiedreportpath", "UnifiedReports");
+            tempdicFilepaths.Add("donothingpath", "UnifiedResources");
+            var tempdicUnifiedReports = new Dictionary<string, string>();
+            tempdicUnifiedReports.Add("filename", "UnifiedFramework_Report");
+            tempdicUnifiedReports.Add("name", "UnifiedImplemenation");
+            tempdicUnifiedReports.Add("title", "UnifiedTitle");
+            tempdicUnifiedReports.Add("reportheadline", "UnifiedheadLine");
+
+            var json = JsonConvert.SerializeObject(new
+            {
+                FilePaths=tempdicFilepaths,
+                UnifiedReports=tempdicUnifiedReports
+            }, Formatting.Indented);
+
+            try
+            {
+                var jsonFile = Path.Combine(DirectoryHandler.DirectoryCreation(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,
+                    "Model")), "appconfig" + ".json");
+                File.WriteAllText(jsonFile, json, Encoding.UTF8);
+                var projFilePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                var p1 = new Microsoft.Build.Evaluation.Project(Path.Combine(projFilePath,
+                    Path.GetFileName(projFilePath.TrimEnd(Path.DirectorySeparatorChar)) + ".csproj"));
+                p1.AddItem("None", jsonFile, new Dictionary<string, string> { { "CopyToOutputDirectory", "PreserveNewest" } });
+                p1.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Creation of Json File, Failed!");
+            }
         }
 
     }
