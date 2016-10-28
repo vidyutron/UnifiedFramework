@@ -34,28 +34,8 @@ namespace UnifiedFramework.Tests
     public class AppConfig
     {
         
-        // Please fill in your code
-        public void 
-        {
-            get
-            {
-                return this.Dictionary<Dictionary<string,string>;
-            }
-            set
-            {
-            }
-        }
+        public Dictionary<string, string> FilePaths {get; set;}//;
         
-        // Please fill in your code
-        public void 
-        {
-            get
-            {
-                return this.Dictionary<Dictionary<string,string>;
-            }
-            set
-            {
-            }
-        }
+        public Dictionary<string, string> UnifiedReports {get; set;}//;
     }
 }

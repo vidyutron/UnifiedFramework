@@ -168,7 +168,7 @@ namespace UnifiedFrameWork.Controller
             CodeTypeReference uCodeType = new CodeTypeReference(
                 refName,
                 new CodeTypeReference[] {
-                    new CodeTypeReference(Type.GetType(param1))});
+                new CodeTypeReference(Type.GetType(param1))});
             CodeMemberField field1 = new CodeMemberField();
             field1.Name = memberName;
             field1.Attributes = MemberAttributes.Static | MemberAttributes.Public;
@@ -177,16 +177,33 @@ namespace UnifiedFrameWork.Controller
             targetClass.Members.Add(field1);
         }
 
-        internal void UCodeAddProperties(string propertyName, string returnVariable, bool get = true, bool set = true)
+        internal void UCodeAddProperty(string propertyName, string type, bool get = true, bool set = true)
         {
-            CodeMemberProperty uCodeProperty = new CodeMemberProperty();
-            uCodeProperty.Attributes = MemberAttributes.Public | MemberAttributes.Final;
-            uCodeProperty.HasGet = get;
-            uCodeProperty.HasSet = set;
-            uCodeProperty.Comments.Add(new CodeCommentStatement("Please fill in your code"));
-            uCodeProperty.GetStatements.Add(new CodeMethodReturnStatement(
-                new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), returnVariable)));
-            targetClass.Members.Add(uCodeProperty);
+            var type1 = Type.GetType("System.Collections.Generic.Dictionary<System.String, System.String>");
+            var property = new CodeMemberField()
+            {
+                Name = propertyName,
+                Type = new CodeTypeReference(type1),
+                Attributes = MemberAttributes.Public | MemberAttributes.Final
+            };
+            property.Name += " {get;set;}//";
+            targetClass.Members.Add(property);
+        }
+
+        internal void UCodeAddCollectionProperty(string propertyName, string refName, string param1, 
+            string param2 = "", bool get = true, bool set = true)
+        {
+            var property = new CodeMemberField()
+            {
+                Name = propertyName,
+                Type = new CodeTypeReference(
+                refName,
+                new CodeTypeReference[] {
+                new CodeTypeReference(Type.GetType(param1)),new CodeTypeReference(Type.GetType(param2))}),
+                Attributes = MemberAttributes.Public | MemberAttributes.Final
+            };
+            property.Name += " {get; set;}//";
+            targetClass.Members.Add(property);
         }
 
         internal void UCodeAddReportProperty(string reportInstance,string reportName, string reportTitle, 

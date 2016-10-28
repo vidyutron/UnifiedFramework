@@ -1,17 +1,23 @@
-﻿//Code snippet with explanation to assist in Getting started with unified Framework.
+﻿//Code snippet with explanation to assist in getting started with unified Framework.
+
+
+//Use these namespaces in your intial startup unit Test file as well
 
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-using UnifiedFrameWork.ControllerLayer;
+using UnifiedFrameWork.Controller;
 using System.Collections.Generic;
 using UnifiedFrameWork.UCodeGenerator;
+using UnifiedFrameWork.UComponents;
 using System.Linq;
 
-namespace TestUF3
+//------------------------------------------------------- Sample Test Method Construct  ---------------------------------------------- 
+
+namespace SampleUFProject
 {
     [TestClass]
-    public class TestUF3
+    public class SampleUnifiedClass
     {
         [TestMethod]
         public void SampleMethod()
@@ -37,17 +43,18 @@ namespace TestUF3
 
             //In this section we will create a single file inside a folder.
             //Invoke Unified Code Engine, using Namespace, folder name, and baseclass 
-            codeEngine = new UCodeGenController(nameSpace, "FolderOne", baseType);
+            codeEngine = new UCodeGenController(nameSpace, "SampleFileOne", baseType);
             //Invoke Unified Code Generator, apart from creation of config file. this way should be followed to create c# files
             //Here we need to passs file path, folder name, class name.
             codeEngine.UCodeBuilder(filePath, "FolderOne", "SampleFileOne");
 
-            
-            //In this Section we will be creating two file under single folder
-            codeEngine = new UCodeGenController(nameSpace, "FolderTwo", baseType);
+
+            ////In this Section we will be creating two file under single folder
+            codeEngine = new UCodeGenController(nameSpace, "SampleFileTwo", baseType);
             codeEngine.UCodeBuilder(filePath, "FolderTwo", "SampleFileTwo");
-            codeEngine = new UCodeGenController(nameSpace, "FolderTwo", baseType);
+            codeEngine = new UCodeGenController(nameSpace, "SampleFileThree", baseType);
             codeEngine.UCodeBuilder(filePath, "FolderTwo", "SampleFileThree");
+
 
             //In this section we will create Primary test method class with, by reading exisitng test case list(in excel format)
             //You must supply either ur Actual/Dummy Test Case excel sheet, or may skip this section completely.
@@ -64,6 +71,7 @@ namespace TestUF3
             List<string> uCodeExcelRead;
             uCodeExcelRead = component.ExcelReader(filePath, "TestCaseFileName", "SheetName");
             List<Dictionary<string, string>> uCodeMethodAttribute = new List<Dictionary<string, string>>();
+            codeEngine = new UCodeGenController(nameSpace, "BVT_TestMethod", baseType,"TestClass");
             for (int i = 0; i < uCodeExcelRead.Count; i++)
             {
                 if (i != 0)
@@ -85,7 +93,7 @@ namespace TestUF3
 
 //-----------------------------------------------------------------  Unified HTML DOM Element Extractor --------------------------------------------------------
 
-//***** Current Unified Extractor extracts
+//** Current Unified Extractor extracts
 // A.  ID
 // B.  Class
 // C.  Anchor Text
@@ -104,3 +112,32 @@ namespace TestUF3
             //Pass full formed file path of the json file created as part of Extractor Method
             //Make sure this file is called, only if Extractor method finished succesfully, and you can determine the file path and name
             HtmlDomObject sampleElements=UnifiedHtmlExtractor.GetHtmlElements(@"C:\sampleProject\UFHtmlExtractor\mikesdotnetting_article_273_20160818173235.json");
+
+
+
+//---------------------------------------------------------------  Access Dom Element extracted by Unified HTML Extractor   -----------------------------------------
+
+/* public static HtmlDomObject SampleHTMLFileTORead
+        {
+            get
+            {
+				//Give Relative or Absolute File Path of the JSON file, created after extraction of the DOM Element.
+                HtmlDomObject sampleElements = UnifiedHtmlExtractor.GetHtmlElements(@"D:\UnifiedFramework\UnifiedFrameWork\UnifiedFramework.Implement\UFHtmlExtractor\convert-jpg-to-pdfnet_20160826164644.json");
+                return sampleElements;
+            }
+        } */
+
+
+
+//---------------------------------------------------------------  Intialising Winium Driver ----------------------------------------------------------------------
+
+/* public static RemoteWebDriver winiumDriver { get {
+                var dc = new DesiredCapabilities();
+                dc.SetCapability("app", Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedResources", "DoNothing.exe"));
+                var winiumDriver = new RemoteWebDriver(new Uri("http://localhost:9999"), dc);
+
+                return winiumDriver;
+            }
+        } */
+
+

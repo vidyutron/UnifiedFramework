@@ -9,10 +9,10 @@ namespace UnifiedFrameWork.UCodeGenerator
 {
     public class UCodeGen
     {
-        public static List<string> FilesToInclude;
+        public static Dictionary<string,string> FilesToInclude { get; set; }
         public static void Initiate()
         {
-            FilesToInclude = new List<string>();
+            FilesToInclude = new Dictionary<string, string>();
         }
 
         public static void Finalise()
@@ -23,9 +23,12 @@ namespace UnifiedFrameWork.UCodeGenerator
                 var projFilePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                 var p1 = new Microsoft.Build.Evaluation.Project(Path.Combine(projFilePath,
                     Path.GetFileName(System.Reflection.Assembly.GetCallingAssembly().Location).Replace(".dll", "") + ".csproj"));
-                foreach (string filePath in FilesToInclude)
+                foreach (var filePath in FilesToInclude)
                 {
-                    p1.AddItem("Compile", filePath + ".cs");
+                    if (filePath.Value.ToLower().Contains("compile"))
+                        p1.AddItem(filePath.Value, filePath.Key + ".cs");
+                    else
+                        p1.AddItem(filePath.Value, filePath.Key, new Dictionary<string, string> { { "CopyToOutputDirectory", "PreserveNewest" } });
                 }
                 p1.Save();
             }

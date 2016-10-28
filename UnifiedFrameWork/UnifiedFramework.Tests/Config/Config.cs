@@ -8,53 +8,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImplementUnifiedFramework
+namespace UnifiedFramework.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using OpenQA.Selenium;
-    using OpenQA.Selenium.IE;
-    using OpenQA.Selenium.Support.UI;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Configuration;
-    using System.Threading;
-    using UnifiedFramework.UnifiedReports;
-    using UnifiedFrameWork.Controller;
-    using System.Text.RegularExpressions;
-    using Winium.Desktop.Driver;
-    using OpenQA.Selenium.Remote;
-    using UnifiedFrameWork.UnifiedComponents;
-    using UnifiedFramework.Implement.Config;
-    using Newtonsoft.Json;
-
+    using  System;
+    using  System.Collections.Generic;
+    using  System.Linq;
+    using  System.Text;
+    using  System.Threading.Tasks;
+    using  OpenQA.Selenium;
+    using  OpenQA.Selenium.IE;
+    using  OpenQA.Selenium.Support.UI;
+    using  Microsoft.VisualStudio.TestTools.UnitTesting;
+    using  System.Diagnostics;
+    using  System.IO;
+    using  System.Configuration;
+    using  System.Threading;
+    using  UnifiedFramework.UnifiedReports;
+    using  UnifiedFrameWork.Controller;
+    using  System.Text.RegularExpressions;
+    using  Winium.Desktop.Driver;
+    using  OpenQA.Selenium.Remote;
+    using  UnifiedFrameWork.UnifiedComponents;
+    
+    
     [TestClass()]
     public class Config
     {
-        private static AppConfig _appJson;
-        public static AppConfig AppJson {
-            get {
-                if (_appJson == null)
-                {
-                    using (StreamReader file = File.OpenText("appconfig.json"))
-                    {
-                        _appJson = JsonConvert.DeserializeObject<AppConfig>(file.ReadToEnd());
-                        return _appJson;
-                    }
-                }
-                else { return _appJson; }            
-            }
-        }
-
-        public IWebDriver Driver { get; set; }
-        public UnifiedReports UnifiedReport { get; set; }
-        public UnifiedTest UnifiedTest { get; set; }
-
+        
         public static OpenQA.Selenium.IWebDriver driver;
+        
+        public static string textFile;
         
         public static UnifiedFramework.UnifiedReports.UnifiedReports unifiedReport;
         
@@ -83,7 +66,6 @@ namespace ImplementUnifiedFramework
         [TestInitialize()]
         public void TestIntialise()
         {
-           var some= AppJson.FilePaths["seleniumdriverpath"];
             #region Code Injection
             ClearBrowser();
             string ieServerFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "UnifiedTools", "IEWebDriver");

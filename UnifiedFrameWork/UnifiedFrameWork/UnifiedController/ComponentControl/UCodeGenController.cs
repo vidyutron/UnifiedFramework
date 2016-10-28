@@ -92,7 +92,7 @@ namespace UnifiedFrameWork.Controller
 
         public void UcodeAddProperty(string propertyName, string returnVariable, bool get = true, bool set = true)
         {
-            codeEngine.UCodeAddProperties(propertyName, returnVariable, get, set);
+            codeEngine.UCodeAddProperty(propertyName, returnVariable, get, set);
         }
 
         public void UCodeAddReportingProperty(string reportInstance, string reportName, string reportTitle,
@@ -111,28 +111,28 @@ namespace UnifiedFrameWork.Controller
         public void UCodeBuilder(string filePath, string directory, string className)
         {
             codeEngine.UCodeGenerator(filePath, directory, className);
-            UCodeGen.FilesToInclude.Add(Path.Combine(directory, className));
+            UCodeGen.FilesToInclude.Add(Path.Combine(directory, className), "Compile");
             //string projectName = Path.GetFileName(System.Reflection.Assembly.GetCallingAssembly().Location).Replace(".dll","");
             //AutomateAddFile.IncludeInProject(projectName, Path.Combine(filePath,Directory, className + ".cs"));
         }
 
         public void UCodeConfigGen(string filePath,string directory,string driverType)
         {
-            UnifiedFilesDownload(".\\UnifiedDownloads.ps1", driverType);
+            UnifiedFilesDownload(@".\UnifiedDownloads.ps1", driverType);
             var codeEngine1 = new UCodeEngine(nameSpace, localUsingCollection, "AppConfig");
-            codeEngine1.UCodeAddProperties("FilePaths", "Dictionary<Dictionary<string,string>");
-            codeEngine1.UCodeAddProperties("UnifiedReports", "Dictionary<Dictionary<string,string>");
-            codeEngine1.UCodeGenerator(filePath, "Model", className);
-            UCodeGen.FilesToInclude.Add(Path.Combine("Model", className));
+            codeEngine1.UCodeAddCollectionProperty("FilePaths", "Dictionary","System.String","System.String");
+            codeEngine1.UCodeAddCollectionProperty("UnifiedReports", "Dictionary", "System.String", "System.String");
+            codeEngine1.UCodeGenerator(filePath, "Model", "AppConfig");
+            UCodeGen.FilesToInclude.Add(Path.Combine("Model", "AppConfig"), "Compile");
 
             UnifiedAppConfigGenerator(driverType);
 
-            string testIntialiseCodeSnippet = File.ReadAllText("..//..//"+ snippetParentFolder + "//testIntializeSnipp.txt");
-            string testCleanupCodeSnippet = File.ReadAllText("..//..//" + snippetParentFolder + "//testCleanUpSnipp.txt");
-            string testClearBrowserCodeSnippet = File.ReadAllText("..//..//" + snippetParentFolder + "//clrBrowserSnipp.txt");
+            var testIntialiseCodeSnippet = File.ReadAllText(@"../../"+ snippetParentFolder + @"/testIntializeSnipp.txt");
+            var testCleanupCodeSnippet = File.ReadAllText(@"../../" + snippetParentFolder + @"/testCleanUpSnipp.txt");
+            var testClearBrowserCodeSnippet = File.ReadAllText(@"../../" + snippetParentFolder + @"/clrBrowserSnipp.txt");
             Dictionary<string, string> testInitialiseAttributes = new Dictionary<string, string>() { { "TestInitialize", "" }, };
             Dictionary<string, string> testCleanupAttributes = new Dictionary<string, string>() { { "TestCleanup", "" }, };
-            string reportInstance = "Instance";
+            var reportInstance = "Instance";
             Dictionary<string, string> memberCollection = new Dictionary<string, string>();
             memberCollection.Add("OpenQA.Selenium.IWebDriver,UnifiedFramework", "driver");
             memberCollection.Add("System.String", "textFile");
@@ -141,7 +141,7 @@ namespace UnifiedFrameWork.Controller
             memberCollection.Add("OpenQA.Selenium.Support.UI.WebDriverWait,UnifiedFramework", "wait");
             memberCollection.Add("UnifiedFrameWork.Controller.UComponentController", "unifiedComponent");
 
-            UCodeEngine codeEngine = new UCodeEngine(nameSpace, localUsingCollection, className,"TestClass");
+            var codeEngine = new UCodeEngine(nameSpace, localUsingCollection, className,"TestClass");
             codeEngine.UCodeAddMembers(memberCollection);
             codeEngine.UCodeAddCollectionMembers("List", "unifiedLogCollection", "UnifiedFramework.UnifiedReports.UnifiedTest,UnifiedFramework");
             codeEngine.UCodeAddMethodSnippet(testIntialiseCodeSnippet, "TestIntialise", testInitialiseAttributes);
@@ -151,7 +151,7 @@ namespace UnifiedFrameWork.Controller
             codeEngine.UCodeGenerator(filePath, directory, className);
 
             //Include file in project
-            UCodeGen.FilesToInclude.Add(Path.Combine(directory, className));
+            UCodeGen.FilesToInclude.Add(Path.Combine(directory, className),"Compile");
         }
 
         internal static void UnifiedFilesDownload(string scriptFile,string driverType)
@@ -193,19 +193,16 @@ namespace UnifiedFrameWork.Controller
 
             try
             {
-                var jsonFile = Path.Combine(DirectoryHandler.DirectoryCreation(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,
-                    "Model")), "appconfig" + ".json");
+                var jsonFile = Path.Combine(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "appconfig.json"));
                 File.WriteAllText(jsonFile, json, Encoding.UTF8);
-                var projFilePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                var p1 = new Microsoft.Build.Evaluation.Project(Path.Combine(projFilePath,
-                    Path.GetFileName(projFilePath.TrimEnd(Path.DirectorySeparatorChar)) + ".csproj"));
-                p1.AddItem("None", jsonFile, new Dictionary<string, string> { { "CopyToOutputDirectory", "PreserveNewest" } });
-                p1.Save();
+                UCodeGen.FilesToInclude.Add("appconfig.json", "None");
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Creation of Json File, Failed!");
             }
+
+            
         }
 
     }

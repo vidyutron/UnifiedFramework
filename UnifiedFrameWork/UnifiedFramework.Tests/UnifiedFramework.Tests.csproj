@@ -58,6 +58,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Config\Config.cs" />
+    <Compile Include="Model\AppConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnifiedTests.cs" />
   </ItemGroup>
@@ -68,8 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.json" />
-    <None Include="D:\GitHub_Repos\UnifiedFramework\UnifiedFrameWork\UnifiedFramework.Tests\Model\appconfig.json">
+    <None Include="appconfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="UFHtmlExtractor\mikesdotnetting_article_273_20161026143145.json">
