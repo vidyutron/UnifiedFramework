@@ -4,32 +4,32 @@ Standalone test automation framework, built on top of Selenium Web Driver Engine
 <img src="http://s28.postimg.org/yq84hm5e5/UF_Logo.png" width="192px" height="192px">
 </p>
 
-##Description
+## Description
 UnifiedFramework is standalone automation framework, Built on top of industry leading automation tool ©Selenium WebDriver, enhancing 
 features as well as stability.
-##Components:
-###Unified Code Engine-
+## Components:
+### Unified Code Engine-
 Taking into the consideration of how much time we invest in local automation framework Setup for each project, 
 with little deviation from the project structure, through UF we can automate the process of creation of setup files and structure in given language of your choice.
 <p>**-Currentnly UF supports C#</p>
-###Unified Reporting-
+### Unified Reporting-
 UnifiedFramework has inbuilt Reporting framework, which can be used to produce elegant yet intuitive reports, better if you are following 
 Unified Code Engine, reporting intialisation and setup shall be taken care automatically. Reporting and Logging is not just another good to have feature,
 its integral to the whole process and with Unified Reporting is glued together at code level.
-###Unified Extractor-
+### Unified Extractor-
 Unified Extractor, automates the process of scrapping HTML DOM elements into a lossely coupled JSON File, which then can be refered back to identify the 
 web page's controls. The JSON fiels hence generated are lite weight,CLR independent(Compile) and better adapted to external modifications.
-###Unified Components
+### Unified Components
 In real world automation suites, there’s hardly a scenario where automation framework alone can complete everything E2E. 
 Some requires Excel Read/Write functionality, Db connection mechanism, Sending email capability, Read/Write CSVs etc.In UF provides all these featues as pre baked APIs which will help you streamline these functionalities without breaking a sweat!
 
-##Getting Started-
+## Getting Started-
 To get started with UnifiedFramework, Add reference from Nuget Package Manager into you project.
 [UnifiedFramework-Nuget](https://www.nuget.org/packages/UnifiedFramework/)
 
-####Code snippet with explanation to assist in getting started with unified Framework.
+#### Code snippet with explanation to assist in getting started with unified Framework.
 
-####Use these namespaces in your intial startup unit Test file as well
+#### Use these namespaces in your intial startup unit Test file as well
 
 * using System;
 * using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -124,7 +124,7 @@ To get started with UnifiedFramework, Add reference from Nuget Package Manager i
 
 
 
-####Unified HTML DOM Element Extractor
+#### Unified HTML DOM Element Extractor
 
 <p> Currently Unified Extractor extracts: </p>
 *  ID.
